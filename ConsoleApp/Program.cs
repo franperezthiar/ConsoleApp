@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hola Mundo por consola");
+            Console.WriteLine();
+            Console.WriteLine("Pulsa cualquier tecla para salir");
+            Console.ReadKey();
         }
     }
 }
