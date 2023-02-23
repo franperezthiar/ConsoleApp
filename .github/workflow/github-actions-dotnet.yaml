@@ -1,0 +1,26 @@
+name: GitHub Actions Dotnet
+
+on:
+  push:
+    branches:
+      - '**/*.md' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+	    DOTNET_CORE_VERSION: 3.1.x
+    	DOTNET_CLI_TELEMETRY_OUTPUT: 1
+	    DOTNET_NOLOGO: 'true'
+	    BUILD_CONFIGURATION: Release
+	    PROJECT_PATH: 'src/ConsoleApp'
+	    PROJECT_TEST_PATH: 'UnitMSTest/**.Tests'
+    steps:
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1
+	
+      - name: Check out repositoty code ('${{ github.repository }}' cloned to the runner)
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Run a one-line script
+        run:  '& "$(vswhere -property installationPath)\Common7\IDE\MSTest.exe" /help'
